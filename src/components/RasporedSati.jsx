@@ -61,11 +61,10 @@ function RasporedSati() {
   const [today] = useState(new Date())
 
   // Određivanje koji je tjedan (A ili B) na osnovu specifičnih datuma
-  // Tjedan A (3., 5. i 7. razredi) započinje: 8.9., 22.9., 6.10., 20.10., 3.11., 17.11., 1.12., 15.12., 12.1., 26.1., 9.2., 23.2., 9.3., 23.3., 6.4., 20.4., 4.5., 18.5., 1.6.
-  // Tjedan B (4., 6. i 8. razredi) započinje: 15.9., 29.9., 13.10., 27.10., 10.11., 24.11., 8.12., 22.12., 19.1., 2.2., 16.2., 2.3., 16.3., 30.3., 13.4., 27.4., 11.5., 25.5., 8.6.
+  // Tjedan A (3., 5. i 7. razredi) započinje: 8.9., 22.9., 6.10., 20.10., 3.11., 17.11., 1.12., 15.12., 29.12., 12.1., 26.1., 9.2., 23.2., 9.3., 23.3., 6.4., 20.4., 4.5., 18.5., 1.6.
+  // Tjedan B (4., 6. i 8. razredi) započinje: 15.9., 29.9., 13.10., 27.10., 10.11., 24.11., 8.12., 22.12., 5.1., 19.1., 2.2., 16.2., 2.3., 16.3., 30.3., 13.4., 27.4., 11.5., 25.5., 8.6.
   const getWeekType = (date) => {
     const weekStart = startOfWeek(date, { weekStartsOn: 1, locale: hr })
-    const year = weekStart.getFullYear()
     const month = weekStart.getMonth() + 1
     const day = weekStart.getDate()
     
@@ -80,6 +79,7 @@ function RasporedSati() {
       checkDate(6, 10) || checkDate(20, 10) ||
       checkDate(3, 11) || checkDate(17, 11) ||
       checkDate(1, 12) || checkDate(15, 12) ||
+      checkDate(29, 12) || // Dodano za tjedan 29.12 - 5.1
       checkDate(12, 1) || checkDate(26, 1) ||
       checkDate(9, 2) || checkDate(23, 2) ||
       checkDate(9, 3) || checkDate(23, 3) ||
